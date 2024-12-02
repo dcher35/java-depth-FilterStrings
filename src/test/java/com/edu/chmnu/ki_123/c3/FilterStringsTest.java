@@ -1,13 +1,12 @@
 package com.edu.chmnu.ki_123.c3;
 
 import org.junit.jupiter.api.Test;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class OutWordsTest {
+class FilterStringsTest {
     private static boolean isNumber(String word) {
         for (int i = 0; i < word.length(); i++) {
             if (!Character.isDigit(word.charAt(i))) {
@@ -31,7 +30,7 @@ class OutWordsTest {
     @Test
     public void testFindMatchingWords() {
         String sentence = "banana day 1431 hi 28234";
-        List<String> matchingWords = Arrays.stream(sentence.split("\\s+")).filter(OutWordsTest::isNumber).collect(Collectors.toList());
+        List<String> matchingWords = Arrays.stream(sentence.split("\\s+")).filter(FilterStringsTest::isNumber).collect(Collectors.toList());
 
         assertEquals(List.of("1431", "28234"), matchingWords);
     }
